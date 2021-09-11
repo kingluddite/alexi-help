@@ -1,0 +1,31 @@
+{
+  "name": "nucampsite",
+  "version": "1.0.0",
+  "description": "This is a website for functional campsites review site Nucamp",
+  "main": "index.html",
+  "scripts": {
+    "lite": "lite-server",
+    "scss": "sass scss/styles.scss css/styles.css",
+    "start": "npm run watch:all",
+    "watch:scss": "onchange 'css/*.scss' -- npm run scss",
+    "watch:all": "parallelshell 'npm run watch:scss' 'npm run lite'",
+    "copyfonts": "copyfiles -f node_modules/font-awesome/fonts/* dist/fonts",
+    "imagemin": "imagemin img/* -o dist/img",
+    "usemin": "usemin contactus.html -d dist --htmlmin -o dist/contactus.html && usemin aboutus.html -d dist --htmlmin -o dist/aboutus.html && usemin index.html -d dist --htmlmin -o dist/index.html",
+    "clean": "rimraf dist",
+    "build": "npm run clean && npm run imagemin && npm run copyfonts && npm run usemin"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.6.1",
+    "sass": "^1.39.2"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "bootstrap-social": "^5.1.1",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
+  }
+}
